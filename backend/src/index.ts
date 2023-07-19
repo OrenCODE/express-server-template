@@ -27,10 +27,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/a', (req, res) => {
-  res.send('Hello World!');
-});
-
 // Server Activation
 
 app.listen(port, () => {
