@@ -1,5 +1,6 @@
 {
   "*.ts": [
-    "npm run lint"
+    "npm run lint --prefix backend",
+    "npm run lint --prefix frontend"
   ]
 }
