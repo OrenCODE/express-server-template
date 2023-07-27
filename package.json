@@ -12,11 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
-    "prisma": "^5.0.0"
-  },
-  "dependencies": {
-    "@prisma/client": "^5.0.0",
-    "class-validator": "^0.14.0"
+    "lint-staged": "^13.2.3"
   }
 }

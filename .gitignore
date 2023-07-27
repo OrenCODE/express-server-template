@@ -3,4 +3,4 @@ dist
 .DS_Store
 .idea
 backend/mongodb-cluster
-backend/.env.development
+backend/.env

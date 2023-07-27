@@ -23,16 +23,6 @@ class UsersService {
     }
   };
 
-  public createUser = async (data: User): Promise<User> => {
-    try {
-      return await this.users.create({
-        data,
-      });
-    } catch (e) {
-      throw new Error(e);
-    }
-  };
-
   public updateUser = async (id: string, data: User): Promise<User> => {
     try {
       return await this.users.update({
