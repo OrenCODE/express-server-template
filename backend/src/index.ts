@@ -5,6 +5,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 
+import router from '@/routers/routes';
+import usersRouter from '@/routers/users.routes';
 import validateEnv from '@/utils/validateEnv';
 
 // App Variables
@@ -23,9 +25,10 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// Routes
+
+app.use('/', router);
+app.use('/', usersRouter);
 
 // Server Activation
 
