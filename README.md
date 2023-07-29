@@ -4,7 +4,7 @@ NodeJS server template (Domain driven design patterns)
 ### Project Overview
 The primary motivation behind this project is to gain a comprehensive understanding of building a server from the ground up, coupled with the practical application of domain-driven design patterns tailored to meet the demands of enterprise-level usage.
 
-###### The main technologies that are used in this project are:
+### The main technologies that are used in this project are:
 1. ExpressJS (Creation of API routes and middlewares)
 2. Prisma ORM (Dynamic Modules + Typescript)
 3. Class-validator (DTO model validation)
@@ -38,5 +38,4 @@ import these files:
 ###### SQL postgres (coming soon...)
 
 ### Tech Design Diagram:
-
-![backend digram.webp](..%2F..%2FDownloads%2Fbackend%20digram.webp)
+[backend digram.pdf](..%2F..%2FDownloads%2Fbackend%20digram.pdf)
