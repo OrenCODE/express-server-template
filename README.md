@@ -38,4 +38,4 @@ import these files:
 ###### SQL postgres (coming soon...)
 
 ### Tech Design Diagram:
-[backend digram.pdf](..%2F..%2FDownloads%2Fbackend%20digram.pdf)
+[backend digram.pdf](backend%20digram.pdf)
