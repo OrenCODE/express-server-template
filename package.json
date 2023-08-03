@@ -12,8 +12,8 @@
   "author": "Oren Cohen",
   "license": "ISC",
   "workspaces": [
-    "backend/*",
-    "frontend/*"
+    "backend",
+    "frontend"
   ],
   "devDependencies": {
     "husky": "^8.0.3",
