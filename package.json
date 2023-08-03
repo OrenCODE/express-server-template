@@ -5,11 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "server": "npm run dev --prefix backend"
   },
   "keywords": [],
-  "author": "",
+  "author": "Oren Cohen",
   "license": "ISC",
+  "workspaces": [
+    "backend/*",
+    "frontend/*"
+  ],
   "devDependencies": {
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3"
