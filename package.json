@@ -1,12 +1,13 @@
 {
   "name": "express-server-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Microservice architecture design project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "server": "npm run dev --prefix backend"
+    "server": "npm run dev --prefix backend",
+    "postinstall": "npm run prisma-generate --prefix backend"
   },
   "keywords": [],
   "author": "Oren Cohen",

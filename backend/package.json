@@ -9,6 +9,7 @@
     "build": "tsc && tsc-alias",
     "start": "npm run build && NODE_ENV=production node dist/index.js",
     "lint": "eslint --ignore-path .gitignore --ext .ts src/",
+    "prisma-generate": "npx prisma generate",
     "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [],
