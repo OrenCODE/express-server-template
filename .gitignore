@@ -2,5 +2,6 @@ node_modules
 dist
 .DS_Store
 .idea
-backend/mongodb-cluster
-backend/.env
+auth/mongodb-cluster
+auth/.env
+payments/.env

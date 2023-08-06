@@ -4,20 +4,22 @@
   "description": "Microservice architecture design project",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "server": "npm run dev --prefix backend",
-    "postinstall": "npm run prisma-generate --prefix backend"
+    "server": "npm run dev --prefix auth"
   },
   "keywords": [],
   "author": "Oren Cohen",
   "license": "ISC",
-  "workspaces": [
-    "backend",
-    "frontend"
-  ],
   "devDependencies": {
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3"
+    "lint-staged": "^13.2.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "class-validator": "^0.14.0"
   }
 }
