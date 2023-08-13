@@ -1,50 +1,50 @@
-import { PrismaClient, User } from '@prisma/client';
+import { User } from '@prisma/client';
+import { DatabaseError } from '@exceptions/DatabaseError';
+import prisma from '@config/prisma';
 
 class UsersService {
-  public users = new PrismaClient().user;
-
   public getUsers = async (): Promise<User[]> => {
     try {
-      return await this.users.findMany();
+      return await prisma.user.findMany();
     } catch (e) {
-      throw new Error(e);
+      throw new DatabaseError(e.message);
     }
   };
 
   public getUserById = async (id: string): Promise<User | null> => {
     try {
-      return await this.users.findUnique({
+      return await prisma.user.findUnique({
         where: {
           id,
         },
       });
     } catch (e) {
-      throw new Error(e);
+      throw new DatabaseError(e.message);
     }
   };
 
   public updateUser = async (id: string, data: User): Promise<User> => {
     try {
-      return await this.users.update({
+      return await prisma.user.update({
         where: {
           id,
         },
         data,
       });
     } catch (e) {
-      throw new Error(e);
+      throw new DatabaseError(e.message);
     }
   };
 
   public deleteUser = async (id: string): Promise<User> => {
     try {
-      return await this.users.delete({
+      return await prisma.user.delete({
         where: {
           id,
         },
       });
     } catch (e) {
-      throw new Error(e);
+      throw new DatabaseError(e.message);
     }
   };
 }

@@ -1,3 +1,4 @@
 /node_modules
-.env
+.env.development
+src/logs
 mongodb-cluster

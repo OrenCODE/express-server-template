@@ -1,15 +1,46 @@
 import { NextFunction, Request, Response } from 'express';
-import { HttpException } from '@exceptions/HttpException';
+import { ErrorCodes } from '@utils/errorCodes';
+import { ZodError as ValidationError } from 'zod';
+import { AppError, CustomError, DatabaseError, TokenError } from '@interfaces/error.interface';
+import { logError } from '@middlewares/logger.middleware';
 
-const errorMiddleware = (error: HttpException, req: Request, res: Response, next: NextFunction) => {
+const errorMiddleware = (error: AppError, req: Request, res: Response, next: NextFunction) => {
   try {
-    const status: number = error.status || 500;
-    const message: string = error.message || 'Something went wrong';
+    if (error instanceof TokenError) {
+      const { message, status } = error;
+      logError(message);
+      return res.status(status).json({ message });
+    }
 
-    res.status(status).json({ message });
+    const { message, stack } = error;
+    const statusCode = res.statusCode ? res.statusCode : 500;
+
+    if (error instanceof ValidationError) {
+      const validationErrors = error.errors;
+      const errors = validationErrors.map(issue => ({
+        field: issue.path.join('.'),
+        message: issue.message,
+      }));
+      logError(stack);
+      return res.status(400).json({ errors });
+    }
+
+    if (error instanceof DatabaseError) {
+      logError(stack);
+      return res.status(statusCode).json({ message: message || ErrorCodes.InternalServerError });
+    }
+
+    if (error instanceof CustomError) {
+      const { code } = error;
+      logError('bad user input', stack);
+      return res.status(statusCode).json({ error: code });
+    }
+
+    logError('unknown', stack);
+    res.status(statusCode).json({ message: message || ErrorCodes.InternalServerError, stack });
   } catch (error) {
     next(error);
   }
 };
 
-export default errorMiddleware;
+export { errorMiddleware };

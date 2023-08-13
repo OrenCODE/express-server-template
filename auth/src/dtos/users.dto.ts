@@ -1,15 +1,20 @@
-import { IsString, IsEmail, IsNotEmpty } from 'class-validator';
+import { z } from 'zod';
+import { validations } from '@utils/schemaValidations';
 
-export class CreateUserDto {
-  @IsEmail()
-  @IsNotEmpty()
-  email: string;
+const CreateUserSchema = z.object({
+  email: validations.email,
+  name: validations.name,
+  password: validations.password,
+});
 
-  @IsString()
-  @IsNotEmpty()
-  name: string;
+type CreateUserDto = z.infer<typeof CreateUserSchema>;
 
-  @IsString()
-  @IsNotEmpty()
-  password: string;
-}
+const UserSchema = z.object({
+  email: validations.email,
+  name: validations.name.optional(),
+  password: validations.password,
+});
+
+type UserDto = z.infer<typeof UserSchema>;
+
+export { CreateUserDto, CreateUserSchema, UserDto, UserSchema };

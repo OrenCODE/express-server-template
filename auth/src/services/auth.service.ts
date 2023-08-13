@@ -1,34 +1,34 @@
 import { compare, hash } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
-import { PrismaClient, User } from '@prisma/client';
-import { CreateUserDto } from '@dtos/users.dto';
+import { User } from '@prisma/client';
 import { DataStoredInToken, TokenData } from '@interfaces/auth.interface';
-import { HttpException } from '@exceptions/HttpException';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
-
-const SECRET_KEY = process.env.SECRET_KEY;
+import { CustomError } from '@exceptions/CustomError';
+import { ErrorCodes } from '@utils/errorCodes';
+import { UserDto, CreateUserDto } from '@dtos/users.dto';
+import config from '@config/config';
+import prisma from '@config/prisma';
 
 class AuthService {
-  public users = new PrismaClient().user;
-
   public async signup(data: CreateUserDto): Promise<User> {
-    const findUser: User = await this.users.findUnique({ where: { email: data.email } });
-    if (findUser) throw new HttpException(409, `This email ${data.email} already exists`);
+    const findUser: User = await prisma.user.findUnique({ where: { email: data.email } });
+    if (findUser) throw new CustomError(ErrorCodes.UserAlreadyExists);
 
     const hashedPassword = await hash(data.password, 10);
-    const createUserData: Promise<User> = this.users.create({ data: { ...data, password: hashedPassword } });
-
-    return createUserData;
+    return prisma.user.create({
+      data: {
+        email: data.email,
+        name: data.name,
+        password: hashedPassword,
+      },
+    });
   }
 
-  public async login(data: CreateUserDto): Promise<{ cookie: string; findUser: User }> {
-    const findUser: User = await this.users.findUnique({ where: { email: data.email } });
-    if (!findUser) throw new HttpException(409, `This email ${data.email} was not found`);
+  public async login(data: UserDto): Promise<{ cookie: string; findUser: User }> {
+    const findUser: User = await prisma.user.findUnique({ where: { email: data.email } });
+    if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
     const isPasswordMatching: boolean = await compare(data.password, findUser.password);
-    if (!isPasswordMatching) throw new HttpException(409, 'Password is not matching');
+    if (!isPasswordMatching) throw new CustomError(ErrorCodes.InvalidLoginCredentials);
 
     const tokenData = this.createToken(findUser);
     const cookie = this.createCookie(tokenData);
@@ -36,17 +36,17 @@ class AuthService {
     return { cookie, findUser };
   }
 
-  public async logout(data: User): Promise<User> {
-    const findUser: User = await this.users.findFirst({ where: { email: data.email, password: data.password } });
-    if (!findUser) throw new HttpException(409, "User doesn't exist");
+  public async logout(data: UserDto): Promise<User> {
+    const findUser: User = await prisma.user.findFirst({ where: { email: data.email, password: data.password } });
+    if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
     return findUser;
   }
 
   public createToken(user: User): TokenData {
     const dataStoredInToken: DataStoredInToken = { id: user.id };
-    const secretKey: string = SECRET_KEY;
-    const expiresIn: number = 60 * 60;
+    const secretKey: string = config.SECRET_KEY;
+    const expiresIn: number = config.TOKEN_EXPIRY;
 
     return { expiresIn, token: sign(dataStoredInToken, secretKey, { expiresIn }) };
   }

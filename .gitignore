@@ -3,5 +3,7 @@ dist
 .DS_Store
 .idea
 auth/mongodb-cluster
-auth/.env
-payments/.env
+auth/.env.development
+auth/src/logs
+payments/.env.development
+
