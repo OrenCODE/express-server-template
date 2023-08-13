@@ -32,11 +32,11 @@ const errorMiddleware = (error: AppError, req: Request, res: Response, next: Nex
 
     if (error instanceof CustomError) {
       const { code } = error;
-      logError('bad user input', stack);
+      logError(stack);
       return res.status(statusCode).json({ error: code });
     }
 
-    logError('unknown', stack);
+    logError(stack);
     res.status(statusCode).json({ message: message || ErrorCodes.InternalServerError, stack });
   } catch (error) {
     next(error);
