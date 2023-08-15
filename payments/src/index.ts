@@ -8,6 +8,7 @@ import { errorMiddleware } from '@middlewares/error.middleware';
 
 import config from '@config/config';
 import logger from '@utils/logger';
+import paymentsRouter from '@routers/payments.routes';
 
 const port = config.PORT;
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(loggerMiddleware);
+app.use(paymentsRouter);
 app.use(errorMiddleware);
 
 app.listen(port, () => {

@@ -1,0 +1,158 @@
+2023-08-15T10:42:43.484Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:25:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-15T10:43:23.977Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T10:43:54.041Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T10:44:28.564Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T10:45:10.582Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T10:45:50.422Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T10:56:48.079Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:03:55.561Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:15:10.891Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:15:52.750Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:16:24.896Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:16:33.086Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:17:03.055Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:17:12.688Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:18:10.913Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:18:13.828Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:19:30.403Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:26:34.028Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:29:44.398Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:33:13.755Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:33:31.510Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:36:07.697Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:36:35.031Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:38:01.207Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:49:51.440Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:25:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-15T11:50:15.845Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:25:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-15T11:51:14.565Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:25:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-15T11:51:16.089Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:25:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-15T11:52:08.493Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:25:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-15T11:52:36.557Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:53:56.021Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:55:33.526Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T11:55:40.769Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:28:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-15T12:52:26.398Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:24:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)

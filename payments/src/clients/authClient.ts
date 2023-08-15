@@ -1,11 +1,14 @@
-import api from './index';
+import api from './api';
+import config from '@config/config';
 
 function createAuthClient() {
-  const fetchData = async () => {
+  const URL = config.AUTH_CLIENT_URL;
+
+  const findUserById = async (userId: string, idToken: string) => {
+    const url = `${URL}users/${userId}`;
+    const headers = { cookie: `Authorization=${idToken}` };
     try {
-      const data = await api.get('/api/data');
-      console.log('Data:', data);
-      return data;
+      return await api.get(url, headers);
     } catch (error) {
       console.error('Error:', error);
       throw error;
@@ -24,11 +27,11 @@ function createAuthClient() {
   };
 
   return {
-    fetchData,
+    findUserById,
     postData,
   };
 }
 
-const authClient = createAuthClient();
+const AuthClient = createAuthClient();
 
-export default authClient;
+export default AuthClient;

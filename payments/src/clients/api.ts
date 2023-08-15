@@ -6,15 +6,13 @@ const baseURL = config.AUTH_CLIENT_URL;
 const apiClient = axios.create({
   baseURL,
   timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
 });
 
-const api = {
-  get: async url => {
+const Api = {
+  get: async (url, headers = {}) => {
     try {
-      const response = await apiClient.get(url);
+      const response = await apiClient.get(url, { headers });
       return response.data;
     } catch (error) {
       throw error;
@@ -49,4 +47,4 @@ const api = {
   },
 };
 
-export default api;
+export default Api;

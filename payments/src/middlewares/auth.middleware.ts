@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken';
 import { TokenError } from '@exceptions/TokenError';
 import { DataStoredInToken, RequestWithUser } from '@interfaces/auth.interface';
 import config from '@config/config';
-import prisma from '@config/prisma';
+import authClient from '@/clients/authClient';
 
 const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction) => {
   try {
@@ -12,7 +12,7 @@ const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFun
       const verificationResponse = (await verify(Authorization, config.SECRET_KEY)) as DataStoredInToken;
       const userId = verificationResponse.id;
 
-      const findUser = await prisma.user.findUnique({ where: { id: userId } });
+      const findUser = await authClient.findUserById(userId, Authorization);
 
       if (findUser) {
         req.user = findUser;
