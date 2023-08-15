@@ -34,6 +34,8 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.json", ".env"],
+  "include": ["src/**/*.ts", "src/**/*.json",
+    ".env.development"
+  ],
   "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
 }

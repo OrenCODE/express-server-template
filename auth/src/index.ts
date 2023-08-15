@@ -3,11 +3,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 
+import { errorMiddleware } from '@middlewares/error.middleware';
+import { loggerMiddleware } from '@middlewares/logger.middleware';
 import usersRouter from '@/routers/users.routes';
 import authRouter from '@/routers/auth.routes';
 import logger from '@utils/logger';
-import { errorMiddleware } from '@middlewares/error.middleware';
-import { loggerMiddleware } from '@middlewares/logger.middleware';
 import config from '@config/config';
 
 const port = config.PORT;
