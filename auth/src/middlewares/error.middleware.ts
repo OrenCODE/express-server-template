@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { ErrorCodes } from '@utils/errorCodes';
 import { ZodError as ValidationError } from 'zod';
-import { AppError, CustomError, DatabaseError, TokenError } from '@interfaces/error.interface';
 import { logError } from '@middlewares/logger.middleware';
+import { AppError, CustomError, DatabaseError, TokenError } from '@interfaces/error.interface';
 
 const errorMiddleware = (error: AppError, req: Request, res: Response, next: NextFunction) => {
   try {

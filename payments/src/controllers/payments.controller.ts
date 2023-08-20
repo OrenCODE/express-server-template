@@ -19,26 +19,26 @@ class PaymentsController {
     }
   };
 
-  public getAllPaymentsForUser = async (req: RequestWithUser, res: Response): Promise<void> => {
+  public getAllPaymentsForUser = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userId = req.user.id;
       const payments: Payment[] | null = await this.paymentService.getAllPaymentsForUser(userId);
       const totalAmount = this.paymentService.getTotalAmount(payments);
 
       res.status(200).json({ payments, totalAmount });
-    } catch (e) {
-      res.status(500).json({ error: e.message });
+    } catch (error) {
+      next(error);
     }
   };
 
-  public getPaymentById = async (req: Request, res: Response): Promise<void> => {
+  public getPaymentById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // example endpoint for admin
     try {
       const { id } = req.params;
       const payment: Payment | null = await this.paymentService.getPaymentById(id);
       res.status(200).json({ payment });
-    } catch (e) {
-      res.status(500).json({ error: e.message });
+    } catch (error) {
+      next(error);
     }
   };
 
@@ -53,13 +53,13 @@ class PaymentsController {
     }
   };
 
-  public getAllPayments = async (req: Request, res: Response): Promise<void> => {
+  public getAllPayments = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // example endpoint for admin
     try {
       const payments: Payment[] = await this.paymentService.getAllPayments();
       res.status(200).json({ payments });
-    } catch (e) {
-      res.status(500).json({ error: e.message });
+    } catch (error) {
+      next(error);
     }
   };
 }

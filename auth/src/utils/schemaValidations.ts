@@ -1,5 +1,15 @@
 import { z } from 'zod';
 
+const objectIdValidator = z.string().refine(
+  value => {
+    if (!/^[0-9a-fA-F]+$/.test(value)) {
+      return false;
+    }
+    return value.length === 24;
+  },
+  { message: 'Invalid ObjectId format' },
+);
+
 export const validations = {
   email: z.string().email('Invalid email address'),
   name: z
@@ -9,4 +19,6 @@ export const validations = {
       message: 'Name must only contain alphabetic characters and spaces',
     }),
   password: z.string().min(6, 'Password must be at least 6 characters long'),
+  userId: objectIdValidator,
+  amount: z.number(),
 };

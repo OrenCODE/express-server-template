@@ -156,3 +156,219 @@
     at param (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:376:14)
     at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:421:3)
     at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+2023-08-17T09:46:28.057Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:24:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T11:53:08.480Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:24:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T11:56:23.601Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:24:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T12:44:29.982Z error: Error: Authentication token missing
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:26:12)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T12:46:15.159Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:29:10)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T12:46:21.777Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:29:10)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T12:46:47.489Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:29:10)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T13:04:31.043Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/index.js:47:12)
+2023-08-17T13:04:43.239Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:04:46.265Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:05:05.322Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:05:59.084Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:08:20.048Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:09:03.054Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:09:09.619Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:12:01.032Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:13:01.800Z error: Error: Wrong authentication token
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:27:10)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-08-17T13:19:51.893Z error: Wrong authentication token
+2023-08-17T13:23:16.503Z error: AxiosError: AxiosError: Request failed with status code 401
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:15:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:25:09.998Z error: AxiosError: AxiosError: Request failed with status code 401
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:15:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:35:42.557Z error: AxiosError: auth
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:14:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:38:18.511Z error: AxiosError: [object Object]
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:14:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:38:28.056Z error: AxiosError: [object Object]
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:14:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:40:24.347Z error: AxiosError: Request failed with status code 401
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:14:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:43:27.586Z error: AxiosError: Request failed with status code 401
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:14:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:44:51.450Z error: AxiosError: Request failed with status code 401
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:14:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:45:25.353Z error: AxiosError: Request failed with status code 401
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:15:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T13:59:24.525Z error: AxiosError
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:15:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T14:05:24.639Z error: Authentication token missing
+2023-08-17T14:05:27.063Z error: Authentication token missing
+2023-08-17T14:06:33.266Z error: Authentication token missing
+2023-08-17T14:17:01.194Z error: Authentication token missing
+2023-08-17T14:19:56.681Z error: AxiosError
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:15:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T14:21:24.426Z error: AxiosError
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:15:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T14:26:54.990Z error: AxiosError: Request failed with status code 404
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:14:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T14:44:19.774Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:17:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T14:48:48.017Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:17:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T14:54:57.859Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:17:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T14:57:09.433Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:17:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:15:24)
+2023-08-17T15:15:41.478Z error: Authentication token missing
+2023-08-20T07:26:24.161Z error: Authentication token missing
+2023-08-20T11:35:50.095Z error: Authentication token missing
+2023-08-20T13:09:38.315Z error: Authentication token missing
+2023-08-20T14:03:32.161Z error: AxiosError: Request failed with status code 401
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:19:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:17:24)
+2023-08-20T14:05:13.962Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:16:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:17:24)
+2023-08-20T14:05:15.750Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:16:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:17:24)
+2023-08-20T14:05:18.446Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:8:11)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:16:14)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:17:24)

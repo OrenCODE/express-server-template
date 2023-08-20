@@ -1,6 +1,10 @@
 import axios from 'axios';
+import config from '@config/config';
+
+const baseURL = config.PAYMENTS_CLIENT_URL;
 
 const apiClient = axios.create({
+  baseURL,
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' },
 });
@@ -15,9 +19,9 @@ const Api = {
     }
   },
 
-  post: async (url, data) => {
+  post: async (url, data, headers = {}) => {
     try {
-      const response = await apiClient.post(url, data);
+      const response = await apiClient.post(url, data, { headers });
       return response.data;
     } catch (error) {
       throw error;

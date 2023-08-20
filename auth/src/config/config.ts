@@ -12,4 +12,6 @@ export default cleanEnv(process.env, {
   DATABASE_URL: str(),
   SECRET_KEY: str(),
   TOKEN_EXPIRY: num({ default: 10800 }),
+  PAYMENTS_CLIENT_URL: str(),
+  SUBSCRIPTION_PRICE: num({ default: 100 }),
 });

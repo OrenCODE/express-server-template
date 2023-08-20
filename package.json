@@ -5,16 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "postinstall": "npm run install:auth && npm run install:payments",
-    "install:auth": "cd ./auth && npm i && prisma-generate",
-    "install:payments": "cd ./payments && npm i && prisma-generate",
+    "postinstall": "npm run install:auth ; npm run install:payments",
+    "install:auth": "cd ./auth && npm i && npx prisma generate",
+    "install:payments": "cd ./payments && npm i && npx prisma generate",
     "build:auth": "cd ./auth && npm run build",
     "build:payments": "cd ./payments && npm run build",
     "ms:auth": "npm run dev --prefix auth",
     "ms:payments": "npm run dev --prefix payments",
     "server": "concurrently \"npm run ms:auth\" \"npm run ms:payments\"",
-    "prepare": "husky install",
-    "prisma-generate": "npx prisma generate"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Oren Cohen",
