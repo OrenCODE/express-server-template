@@ -2,7 +2,7 @@ import api from './api';
 import config from '@config/config';
 import { AxiosError } from 'axios';
 
-function createAuthClient() {
+const AuthClient = () => {
   const URL = config.AUTH_CLIENT_URL;
   const AuthClientError = (e: AxiosError): AxiosError => {
     throw new AxiosError(e.message, 'auth', e.config, e.request, e.response);
@@ -18,11 +18,7 @@ function createAuthClient() {
     }
   };
 
-  return {
-    findUserById,
-  };
-}
-
-const AuthClient = createAuthClient();
+  return { findUserById };
+};
 
 export default AuthClient;

@@ -6,8 +6,8 @@ import { ErrorCodes } from '@utils/errorCodes';
 import subscriptionClient from '@/clients/subscriptionClient';
 import { CreateSubscriptionSchema } from '@dtos/subscription.dto';
 
-class SubscriptionService {
-  public async createSubscriptionPayment(data: User, cookie: string) {
+const SubscriptionService = () => {
+  const createSubscriptionPayment = async (data: User, cookie: string) => {
     const findUser: User = await prisma.user.findUnique({ where: { email: data.email } });
     if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
@@ -15,7 +15,9 @@ class SubscriptionService {
     const validatedPayment = CreateSubscriptionSchema.parse(payment);
 
     return await subscriptionClient.createSubscriptionPayment(validatedPayment, cookie);
-  }
-}
+  };
+
+  return { createSubscriptionPayment };
+};
 
 export default SubscriptionService;

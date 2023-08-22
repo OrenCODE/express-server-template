@@ -6,8 +6,8 @@ import { UserDto, CreateUserDto } from '@dtos/users.dto';
 import prisma from '@config/prisma';
 import { createAuthCookie } from '@utils/cookieHandler';
 
-class AuthService {
-  public async signup(data: CreateUserDto): Promise<{ cookie: string; newUser: User }> {
+const AuthService = () => {
+  const signup = async (data: CreateUserDto): Promise<{ cookie: string; newUser: User }> => {
     const findUser: User = await prisma.user.findUnique({ where: { email: data.email } });
     if (findUser) throw new CustomError(ErrorCodes.UserAlreadyExists);
 
@@ -22,9 +22,9 @@ class AuthService {
 
     const cookie = createAuthCookie(newUser);
     return { cookie, newUser };
-  }
+  };
 
-  public async login(data: UserDto): Promise<{ cookie: string; findUser: User }> {
+  const login = async (data: UserDto): Promise<{ cookie: string; findUser: User }> => {
     const findUser: User = await prisma.user.findUnique({ where: { email: data.email } });
     if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
@@ -32,16 +32,17 @@ class AuthService {
     if (!isPasswordMatching) throw new CustomError(ErrorCodes.InvalidLoginCredentials);
 
     const cookie = createAuthCookie(findUser);
-
     return { cookie, findUser };
-  }
+  };
 
-  public async logout(data: UserDto): Promise<User> {
+  const logout = async (data: UserDto): Promise<User> => {
     const findUser: User = await prisma.user.findFirst({ where: { email: data.email, password: data.password } });
     if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
     return findUser;
-  }
-}
+  };
+
+  return { signup, login, logout };
+};
 
 export default AuthService;

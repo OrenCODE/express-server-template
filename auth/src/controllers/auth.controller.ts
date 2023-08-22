@@ -6,17 +6,17 @@ import { CreateSubscriptionDto } from '@dtos/subscription.dto';
 import AuthService from '@services/auth.service';
 import SubscriptionService from '@services/subscription.service';
 
-class AuthController {
-  public authService = new AuthService();
-  public subscriptionService = new SubscriptionService();
+const AuthController = () => {
+  const authService = AuthService();
+  const subscriptionService = SubscriptionService();
 
-  public signUp = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const signUp = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userData: CreateUserDto = req.body;
       const validatedUser = CreateUserSchema.parse(userData);
-      const { cookie, newUser } = await this.authService.signup(validatedUser);
+      const { cookie, newUser } = await authService.signup(validatedUser);
 
-      const payment: CreateSubscriptionDto = await this.subscriptionService.createSubscriptionPayment(newUser, cookie);
+      const payment: CreateSubscriptionDto = await subscriptionService.createSubscriptionPayment(newUser, cookie);
 
       res.setHeader('Set-Cookie', [cookie]);
       res.status(201).json({ data: newUser, subscription: payment, message: 'signup' });
@@ -25,11 +25,11 @@ class AuthController {
     }
   };
 
-  public logIn = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const logIn = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userData: UserDto = req.body;
       const validatedUser = UserSchema.parse(userData);
-      const { cookie, findUser } = await this.authService.login(validatedUser);
+      const { cookie, findUser } = await authService.login(validatedUser);
 
       res.setHeader('Set-Cookie', [cookie]);
       res.status(200).json({ data: findUser, message: 'login' });
@@ -38,11 +38,11 @@ class AuthController {
     }
   };
 
-  public logOut = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
+  const logOut = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userData: UserDto = req.user;
       const validatedUser = UserSchema.parse(userData);
-      const logOutUserData: User = await this.authService.logout(validatedUser);
+      const logOutUserData: User = await authService.logout(validatedUser);
 
       res.setHeader('Set-Cookie', ['Authorization=; Max-age=0']);
       res.status(200).json({ data: logOutUserData, message: 'logout' });
@@ -50,6 +50,8 @@ class AuthController {
       next(error);
     }
   };
-}
+
+  return { signUp, logIn, logOut };
+};
 
 export default AuthController;

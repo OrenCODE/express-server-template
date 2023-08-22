@@ -2,8 +2,8 @@ import { User } from '@prisma/client';
 import { DatabaseError } from '@exceptions/DatabaseError';
 import prisma from '@config/prisma';
 
-class UsersService {
-  public getUsers = async (): Promise<User[]> => {
+const UsersService = () => {
+  const getUsers = async (): Promise<User[]> => {
     try {
       return await prisma.user.findMany();
     } catch (e) {
@@ -11,7 +11,7 @@ class UsersService {
     }
   };
 
-  public getUserById = async (id: string): Promise<User | null> => {
+  const getUserById = async (id: string): Promise<User | null> => {
     try {
       return await prisma.user.findUnique({
         where: {
@@ -23,7 +23,7 @@ class UsersService {
     }
   };
 
-  public updateUser = async (id: string, data: User): Promise<User> => {
+  const updateUser = async (id: string, data: User): Promise<User> => {
     try {
       return await prisma.user.update({
         where: {
@@ -36,7 +36,7 @@ class UsersService {
     }
   };
 
-  public deleteUser = async (id: string): Promise<User> => {
+  const deleteUser = async (id: string): Promise<User> => {
     try {
       return await prisma.user.delete({
         where: {
@@ -47,6 +47,8 @@ class UsersService {
       throw new DatabaseError(e.message);
     }
   };
-}
+
+  return { getUsers, getUserById, updateUser, deleteUser };
+};
 
 export default UsersService;

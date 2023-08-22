@@ -3,7 +3,7 @@ import AuthController from '@controllers/auth.controller';
 import authMiddleware from '@middlewares/auth.middleware';
 
 const authRouter = Router();
-const authController = new AuthController();
+const authController = AuthController();
 
 authRouter.post('/signup', authController.signUp);
 

@@ -3,8 +3,8 @@ import { CreatePaymentDto } from '@dtos/payments.dto';
 import { DatabaseError } from '@exceptions/DatabaseError';
 import prisma from '@config/prisma';
 
-class PaymentService {
-  public getAllPayments = async (): Promise<Payment[]> => {
+const PaymentService = () => {
+  const getAllPayments = async (): Promise<Payment[]> => {
     try {
       return await prisma.payment.findMany();
     } catch (e) {
@@ -12,7 +12,7 @@ class PaymentService {
     }
   };
 
-  public getPaymentById = async (id: string): Promise<Payment | null> => {
+  const getPaymentById = async (id: string): Promise<Payment | null> => {
     try {
       return await prisma.payment.findUnique({
         where: {
@@ -24,7 +24,7 @@ class PaymentService {
     }
   };
 
-  public getAllPaymentsForUser = async (userId: string): Promise<Payment[] | null> => {
+  const getAllPaymentsForUser = async (userId: string): Promise<Payment[] | null> => {
     try {
       return await prisma.payment.findMany({
         where: {
@@ -36,7 +36,7 @@ class PaymentService {
     }
   };
 
-  public createPaymentForUser = async (data: CreatePaymentDto): Promise<Payment> => {
+  const createPaymentForUser = async (data: CreatePaymentDto): Promise<Payment> => {
     try {
       return prisma.payment.create({ data });
     } catch (e) {
@@ -44,7 +44,7 @@ class PaymentService {
     }
   };
 
-  public deletePaymentById = async (id: string): Promise<Payment> => {
+  const deletePaymentById = async (id: string): Promise<Payment> => {
     try {
       return await prisma.payment.delete({
         where: {
@@ -56,7 +56,16 @@ class PaymentService {
     }
   };
 
-  public getTotalAmount = (data: Payment[]): number => data.reduce((sum, payment) => sum + payment.amount, 0);
-}
+  const getTotalAmount = (data: Payment[]): number => data.reduce((sum, payment) => sum + payment.amount, 0);
+
+  return {
+    getAllPayments,
+    createPaymentForUser,
+    deletePaymentById,
+    getPaymentById,
+    getAllPaymentsForUser,
+    getTotalAmount,
+  };
+};
 
 export default PaymentService;

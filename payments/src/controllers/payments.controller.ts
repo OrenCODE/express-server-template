@@ -4,14 +4,14 @@ import { RequestWithUser } from '@interfaces/auth.interface';
 import { Payment } from '@prisma/client';
 import PaymentsService from '@services/payments.service';
 
-class PaymentsController {
-  public paymentService = new PaymentsService();
+const PaymentsController = () => {
+  const paymentService = PaymentsService();
 
-  public createPaymentForUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const createPaymentForUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const paymentData: CreatePaymentDto = req.body;
       const validatedPayment = CreatePaymentSchema.parse(paymentData);
-      const paymentCreatedData: Payment = await this.paymentService.createPaymentForUser(validatedPayment);
+      const paymentCreatedData: Payment = await paymentService.createPaymentForUser(validatedPayment);
 
       res.status(201).json({ data: paymentCreatedData, message: 'Payment success' });
     } catch (error) {
@@ -19,11 +19,11 @@ class PaymentsController {
     }
   };
 
-  public getAllPaymentsForUser = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
+  const getAllPaymentsForUser = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userId = req.user.id;
-      const payments: Payment[] | null = await this.paymentService.getAllPaymentsForUser(userId);
-      const totalAmount = this.paymentService.getTotalAmount(payments);
+      const payments: Payment[] | null = await paymentService.getAllPaymentsForUser(userId);
+      const totalAmount = paymentService.getTotalAmount(payments);
 
       res.status(200).json({ payments, totalAmount });
     } catch (error) {
@@ -31,37 +31,39 @@ class PaymentsController {
     }
   };
 
-  public getPaymentById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const getPaymentById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // example endpoint for admin
     try {
       const { id } = req.params;
-      const payment: Payment | null = await this.paymentService.getPaymentById(id);
+      const payment: Payment | null = await paymentService.getPaymentById(id);
       res.status(200).json({ payment });
     } catch (error) {
       next(error);
     }
   };
 
-  public deletePaymentById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const deletePaymentById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // example endpoint for admin
     try {
       const { id } = req.params;
-      const deletedPayment: Payment = await this.paymentService.deletePaymentById(id);
+      const deletedPayment: Payment = await paymentService.deletePaymentById(id);
       res.status(200).json({ payment: deletedPayment });
     } catch (error) {
       next(error);
     }
   };
 
-  public getAllPayments = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const getAllPayments = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // example endpoint for admin
     try {
-      const payments: Payment[] = await this.paymentService.getAllPayments();
+      const payments: Payment[] = await paymentService.getAllPayments();
       res.status(200).json({ payments });
     } catch (error) {
       next(error);
     }
   };
-}
+
+  return { getAllPayments, getPaymentById, getAllPaymentsForUser, createPaymentForUser, deletePaymentById };
+};
 
 export default PaymentsController;

@@ -3,7 +3,7 @@ import config from '@config/config';
 import { AxiosError } from 'axios';
 import { CreateSubscriptionDto } from '@dtos/subscription.dto';
 
-function createSubscriptionClient() {
+const SubscriptionClient = () => {
   const URL = config.PAYMENTS_CLIENT_URL;
   const SubscriptionClientError = (e: AxiosError): AxiosError => {
     throw new AxiosError(e.message, 'payments', e.config, e.request, e.response);
@@ -18,11 +18,7 @@ function createSubscriptionClient() {
     }
   };
 
-  return {
-    createSubscriptionPayment,
-  };
-}
-
-const SubscriptionClient = createSubscriptionClient();
+  return { createSubscriptionPayment };
+};
 
 export default SubscriptionClient;
