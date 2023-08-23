@@ -22,9 +22,10 @@
     "paths": {
       "@/*": ["*"],
       "@config/*": ["config/*"],
+      "@clients/*": ["clients/*"],
       "@controllers/*": ["controllers/*"],
-      "@databases/*": ["databases/*"],
       "@dtos/*": ["dtos/*"],
+      "@repository/*": ["repository/*"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],
       "@middlewares/*": ["middlewares/*"],

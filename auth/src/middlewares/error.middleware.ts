@@ -10,7 +10,7 @@ const errorMiddleware = (error: AppError, req: Request, res: Response, next: Nex
     if (error instanceof TokenError) {
       const { message, status } = error;
       logError(message);
-      return res.status(status).json({ message });
+      return res.status(status).json({ message, status });
     }
 
     const { message, stack } = error;

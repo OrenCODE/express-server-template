@@ -6,6 +6,6 @@ const CreatePaymentSchema = z.object({
   updatedAt: z.date().optional(),
 });
 
-type CreatePaymentDto = z.infer<typeof CreatePaymentSchema>;
+type CreatePaymentDTO = z.infer<typeof CreatePaymentSchema>;
 
-export { CreatePaymentDto, CreatePaymentSchema };
+export { CreatePaymentDTO, CreatePaymentSchema };

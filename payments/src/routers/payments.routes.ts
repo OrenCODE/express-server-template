@@ -3,7 +3,7 @@ import PaymentsController from '@controllers/payments.controller';
 import authMiddleware from '@middlewares/auth.middleware';
 
 const paymentsRouter = Router();
-const paymentsController = new PaymentsController();
+const paymentsController = PaymentsController();
 
 paymentsRouter.post('/payments', authMiddleware, paymentsController.createPaymentForUser);
 

@@ -7,7 +7,7 @@ const CreateUserSchema = z.object({
   password: validations.password,
 });
 
-type CreateUserDto = z.infer<typeof CreateUserSchema>;
+type CreateUserDTO = z.infer<typeof CreateUserSchema>;
 
 const UserSchema = z.object({
   email: validations.email,
@@ -15,6 +15,6 @@ const UserSchema = z.object({
   password: validations.password,
 });
 
-type UserDto = z.infer<typeof UserSchema>;
+type UserDTO = z.infer<typeof UserSchema>;
 
-export { CreateUserDto, CreateUserSchema, UserDto, UserSchema };
+export { CreateUserDTO, CreateUserSchema, UserDTO, UserSchema };

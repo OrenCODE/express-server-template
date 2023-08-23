@@ -1,21 +1,23 @@
 import { NextFunction, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 import { TokenError } from '@exceptions/TokenError';
-import { DataStoredInToken, RequestWithUser } from '@interfaces/auth.interface';
+import { DataStoredInToken, RequestWithUser, User } from '@interfaces/auth.interface';
 import config from '@config/config';
-import authClient from '@/clients/authClient';
+import AuthClient from '@clients/authClient';
 
 const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction) => {
   try {
-    const Authorization = req.cookies['Authorization'] || (req.header('Authorization') ? req.header('Authorization').split('Bearer ')[1] : null);
+    const Authorization = req.cookies['Authorization'] || extractAuthorizationHeader(req);
+
     if (Authorization) {
-      const verificationResponse = (await verify(Authorization, config.SECRET_KEY)) as DataStoredInToken;
-      const userId = verificationResponse.id;
+      const headers = { cookie: `Authorization=${Authorization}` };
+      const authClient = AuthClient(headers);
 
-      const findUser = await authClient.findUserById(userId, Authorization);
+      const userId = await verifyTokenAndGetUserId(Authorization);
+      const user = await fetchUserDetails(authClient, userId);
 
-      if (findUser) {
-        req.user = findUser;
+      if (user) {
+        attachUserToRequest(req, user);
         next();
       } else {
         next(new TokenError(401, 'Wrong authentication token'));
@@ -26,6 +28,24 @@ const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFun
   } catch (error) {
     next(error);
   }
+};
+
+const extractAuthorizationHeader = (req: RequestWithUser) => {
+  const header = req.header('Authorization');
+  return header ? header.split('Bearer ')[1] : null;
+};
+
+const verifyTokenAndGetUserId = async (token: string) => {
+  const verificationResponse = (await verify(token, config.SECRET_KEY)) as DataStoredInToken;
+  return verificationResponse.id;
+};
+
+const fetchUserDetails = async (authClient, userId: string) => {
+  return authClient.findUserById(userId);
+};
+
+const attachUserToRequest = (req: RequestWithUser, user: User) => {
+  req.user = user;
 };
 
 export default authMiddleware;

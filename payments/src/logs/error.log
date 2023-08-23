@@ -372,3 +372,13 @@
     at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:16:14)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:17:24)
+2023-08-22T09:53:23.023Z error: Authentication token missing
+2023-08-22T10:26:31.692Z error: Authentication token missing
+2023-08-22T14:26:55.985Z error: Authentication token missing
+2023-08-22T14:27:03.050Z error: AxiosError: Request failed with status code 404
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:23:9)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:15:7)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:16:20)
+2023-08-23T08:27:12.662Z error: Authentication token missing
+2023-08-23T08:28:14.781Z error: Authentication token missing

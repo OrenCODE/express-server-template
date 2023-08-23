@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { CreatePaymentDto, CreatePaymentSchema } from '@dtos/payments.dto';
+import { CreatePaymentDTO, CreatePaymentSchema } from '@dtos/payments.dto';
 import { RequestWithUser } from '@interfaces/auth.interface';
 import { Payment } from '@prisma/client';
 import PaymentsService from '@services/payments.service';
@@ -9,7 +9,7 @@ const PaymentsController = () => {
 
   const createPaymentForUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const paymentData: CreatePaymentDto = req.body;
+      const paymentData: CreatePaymentDTO = req.body;
       const validatedPayment = CreatePaymentSchema.parse(paymentData);
       const paymentCreatedData: Payment = await paymentService.createPaymentForUser(validatedPayment);
 

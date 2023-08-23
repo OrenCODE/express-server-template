@@ -1,24 +1,27 @@
-import api from './api';
+import { createAuthClient } from './api';
 import config from '@config/config';
 import { AxiosError } from 'axios';
+import { User } from '@interfaces/auth.interface';
 
-const AuthClient = () => {
+const AuthClient = headers => {
+  const api = createAuthClient(headers);
   const URL = config.AUTH_CLIENT_URL;
-  const AuthClientError = (e: AxiosError): AxiosError => {
-    throw new AxiosError(e.message, 'auth', e.config, e.request, e.response);
-  };
 
-  const findUserById = async (userId: string, idToken: string) => {
+  const findUserById = async (userId: string): Promise<User | null> => {
     const url = `${URL}users/${userId}`;
-    const headers = { cookie: `Authorization=${idToken}` };
     try {
-      return await api.get(url, headers);
+      const { user } = await api.get(url);
+      return user;
     } catch (e) {
-      return AuthClientError(e);
+      AuthClientError(e);
     }
   };
 
   return { findUserById };
+};
+
+const AuthClientError = (e: AxiosError): AxiosError => {
+  throw new AxiosError(e.message, 'auth', e.config, e.request, e.response);
 };
 
 export default AuthClient;

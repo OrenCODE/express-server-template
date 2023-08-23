@@ -1,12 +1,12 @@
 import { Payment } from '@prisma/client';
-import { CreatePaymentDto } from '@dtos/payments.dto';
+import { CreatePaymentDTO } from '@dtos/payments.dto';
 import { DatabaseError } from '@exceptions/DatabaseError';
-import prisma from '@config/prisma';
+import paymentDAO from '@repository/payment.dao';
 
 const PaymentService = () => {
   const getAllPayments = async (): Promise<Payment[]> => {
     try {
-      return await prisma.payment.findMany();
+      return await paymentDAO.getAllPayments();
     } catch (e) {
       throw new DatabaseError(e.message);
     }
@@ -14,11 +14,7 @@ const PaymentService = () => {
 
   const getPaymentById = async (id: string): Promise<Payment | null> => {
     try {
-      return await prisma.payment.findUnique({
-        where: {
-          id,
-        },
-      });
+      return await paymentDAO.getPaymentById(id);
     } catch (e) {
       throw new DatabaseError(e.message);
     }
@@ -26,19 +22,15 @@ const PaymentService = () => {
 
   const getAllPaymentsForUser = async (userId: string): Promise<Payment[] | null> => {
     try {
-      return await prisma.payment.findMany({
-        where: {
-          userId,
-        },
-      });
+      return await paymentDAO.getAllPaymentsForUser(userId);
     } catch (e) {
       throw new DatabaseError(e.message);
     }
   };
 
-  const createPaymentForUser = async (data: CreatePaymentDto): Promise<Payment> => {
+  const createPaymentForUser = async (data: CreatePaymentDTO): Promise<Payment> => {
     try {
-      return prisma.payment.create({ data });
+      return await paymentDAO.createPayment(data);
     } catch (e) {
       throw new DatabaseError(e.message);
     }
@@ -46,11 +38,7 @@ const PaymentService = () => {
 
   const deletePaymentById = async (id: string): Promise<Payment> => {
     try {
-      return await prisma.payment.delete({
-        where: {
-          id,
-        },
-      });
+      return await paymentDAO.deletePayment(id);
     } catch (e) {
       throw new DatabaseError(e.message);
     }

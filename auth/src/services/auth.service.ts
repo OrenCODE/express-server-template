@@ -2,30 +2,24 @@ import { compare, hash } from 'bcrypt';
 import { User } from '@prisma/client';
 import { CustomError } from '@exceptions/CustomError';
 import { ErrorCodes } from '@utils/errorCodes';
-import { UserDto, CreateUserDto } from '@dtos/users.dto';
-import prisma from '@config/prisma';
+import { UserDTO, CreateUserDTO } from '@dtos/user.dto';
 import { createAuthCookie } from '@utils/cookieHandler';
+import userDAO from '@repository/user.dao';
 
 const AuthService = () => {
-  const signup = async (data: CreateUserDto): Promise<{ cookie: string; newUser: User }> => {
-    const findUser: User = await prisma.user.findUnique({ where: { email: data.email } });
+  const signup = async (data: CreateUserDTO): Promise<{ cookie: string; newUser: User }> => {
+    const findUser: User = await userDAO.getUserByEmail(data);
     if (findUser) throw new CustomError(ErrorCodes.UserAlreadyExists);
 
     const hashedPassword = await hash(data.password, 10);
-    const newUser = await prisma.user.create({
-      data: {
-        email: data.email,
-        name: data.name,
-        password: hashedPassword,
-      },
-    });
-
+    const newUser = await userDAO.createUser(data, hashedPassword);
     const cookie = createAuthCookie(newUser);
+
     return { cookie, newUser };
   };
 
-  const login = async (data: UserDto): Promise<{ cookie: string; findUser: User }> => {
-    const findUser: User = await prisma.user.findUnique({ where: { email: data.email } });
+  const login = async (data: UserDTO): Promise<{ cookie: string; findUser: User }> => {
+    const findUser: User = await userDAO.getUserByEmail(data);
     if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
     const isPasswordMatching: boolean = await compare(data.password, findUser.password);
@@ -35,8 +29,8 @@ const AuthService = () => {
     return { cookie, findUser };
   };
 
-  const logout = async (data: UserDto): Promise<User> => {
-    const findUser: User = await prisma.user.findFirst({ where: { email: data.email, password: data.password } });
+  const logout = async (data: UserDTO): Promise<User> => {
+    const findUser: User = await userDAO.getUser(data);
     if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
     return findUser;

@@ -1,7 +1,7 @@
 import api from './api';
 import config from '@config/config';
 import { AxiosError } from 'axios';
-import { CreateSubscriptionDto } from '@dtos/subscription.dto';
+import { CreateSubscriptionDTO } from '@dtos/subscription.dto';
 
 const SubscriptionClient = () => {
   const URL = config.PAYMENTS_CLIENT_URL;
@@ -9,7 +9,7 @@ const SubscriptionClient = () => {
     throw new AxiosError(e.message, 'payments', e.config, e.request, e.response);
   };
 
-  const createSubscriptionPayment = async (data: CreateSubscriptionDto, cookie: string) => {
+  const createSubscriptionPayment = async (data: CreateSubscriptionDTO, cookie: string) => {
     const url = `${URL}payments`;
     try {
       return await api.post(url, data, { cookie });

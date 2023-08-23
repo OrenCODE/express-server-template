@@ -6,6 +6,6 @@ const CreateSubscriptionSchema = z.object({
   amount: validations.amount,
 });
 
-type CreateSubscriptionDto = z.infer<typeof CreateSubscriptionSchema>;
+type CreateSubscriptionDTO = z.infer<typeof CreateSubscriptionSchema>;
 
-export { CreateSubscriptionDto, CreateSubscriptionSchema };
+export { CreateSubscriptionDTO, CreateSubscriptionSchema };

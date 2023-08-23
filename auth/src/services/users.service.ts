@@ -1,11 +1,11 @@
 import { User } from '@prisma/client';
 import { DatabaseError } from '@exceptions/DatabaseError';
-import prisma from '@config/prisma';
+import userDAO from '@repository/user.dao';
 
 const UsersService = () => {
   const getUsers = async (): Promise<User[]> => {
     try {
-      return await prisma.user.findMany();
+      return await userDAO.getAllUsers();
     } catch (e) {
       throw new DatabaseError(e.message);
     }
@@ -13,11 +13,7 @@ const UsersService = () => {
 
   const getUserById = async (id: string): Promise<User | null> => {
     try {
-      return await prisma.user.findUnique({
-        where: {
-          id,
-        },
-      });
+      return await userDAO.getUserById(id);
     } catch (e) {
       throw new DatabaseError(e.message);
     }
@@ -25,12 +21,7 @@ const UsersService = () => {
 
   const updateUser = async (id: string, data: User): Promise<User> => {
     try {
-      return await prisma.user.update({
-        where: {
-          id,
-        },
-        data,
-      });
+      return await userDAO.updateUser(id, data);
     } catch (e) {
       throw new DatabaseError(e.message);
     }
@@ -38,11 +29,7 @@ const UsersService = () => {
 
   const deleteUser = async (id: string): Promise<User> => {
     try {
-      return await prisma.user.delete({
-        where: {
-          id,
-        },
-      });
+      return await userDAO.deleteUser(id);
     } catch (e) {
       throw new DatabaseError(e.message);
     }
