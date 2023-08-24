@@ -9,10 +9,11 @@ const SubscriptionClient = () => {
     throw new AxiosError(e.message, 'payments', e.config, e.request, e.response);
   };
 
-  const createSubscriptionPayment = async (data: CreateSubscriptionDTO, cookie: string) => {
+  const createSubscriptionPayment = async (newData: CreateSubscriptionDTO, cookie: string) => {
     const url = `${URL}payments`;
     try {
-      return await api.post(url, data, { cookie });
+      const { data } = await api.post(url, newData, { cookie });
+      return data;
     } catch (e) {
       return SubscriptionClientError(e);
     }

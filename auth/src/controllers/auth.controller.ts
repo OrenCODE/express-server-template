@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 import { User } from '@prisma/client';
 import { CreateUserDTO, CreateUserSchema, UserDTO, UserSchema } from '@dtos/user.dto';
 import { RequestWithUser } from '@interfaces/auth.interface';
-import { CreateSubscriptionDTO } from '@dtos/subscription.dto';
 import AuthService from '@services/auth.service';
 import SubscriptionService from '@services/subscription.service';
 
@@ -16,10 +15,11 @@ const AuthController = () => {
       const validatedUser = CreateUserSchema.parse(userData);
       const { cookie, newUser } = await authService.signup(validatedUser);
 
-      const payment: CreateSubscriptionDTO = await subscriptionService.createSubscriptionPayment(newUser, cookie);
+      const payment = await subscriptionService.createSubscriptionPayment(newUser, cookie);
+      const subscriptionStatus = await subscriptionService.updateSubscriptionStatus(newUser, payment);
 
       res.setHeader('Set-Cookie', [cookie]);
-      res.status(201).json({ data: newUser, subscription: payment, message: 'signup' });
+      res.status(201).json({ data: newUser, subscription: subscriptionStatus, message: 'signup' });
     } catch (error) {
       next(error);
     }
