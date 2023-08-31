@@ -14,4 +14,6 @@ export default cleanEnv(process.env, {
   TOKEN_EXPIRY: num({ default: 10800 }),
   PAYMENTS_CLIENT_URL: str(),
   SUBSCRIPTION_PRICE: num({ default: 100 }),
+  REDIS_HOST: str({ default: '127.0.0.1' }),
+  REDIS_PORT: num({ default: 6379 }),
 });

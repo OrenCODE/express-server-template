@@ -25,6 +25,7 @@
       "@clients/*": ["clients/*"],
       "@controllers/*": ["controllers/*"],
       "@dtos/*": ["dtos/*"],
+      "@queue/*": ["queue/*"],
       "@repository/*": ["repository/*"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],

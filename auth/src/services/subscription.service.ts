@@ -1,11 +1,12 @@
 import { User } from '@prisma/client';
-import config from '@config/config';
-import { CustomError } from '@exceptions/CustomError';
+import { Payment } from '@interfaces/payment.interface';
 import { ErrorCodes } from '@utils/errorCodes';
+import { CustomError } from '@exceptions/CustomError';
 import { CreateSubscriptionSchema } from '@dtos/subscription.dto';
 import SubscriptionClient from '@clients/subscriptionClient';
+import config from '@config/config';
 import userDAO from '@repository/user.dao';
-import { Payment } from '@interfaces/payment.interface';
+// import { subscriptionJobOpts, subscriptionQueue } from '@queue/subscriptionQueue';
 
 const SubscriptionService = () => {
   const subscriptionClient = SubscriptionClient();
@@ -16,6 +17,15 @@ const SubscriptionService = () => {
 
     const payment = { userId: findUser.id, amount: config.SUBSCRIPTION_PRICE };
     const validatedPayment = CreateSubscriptionSchema.parse(payment);
+
+    // await subscriptionQueue.add(
+    //   'createSubscriptionPayment',
+    //   {
+    //     payment: validatedPayment,
+    //     cookie,
+    //   },
+    //   subscriptionJobOpts,
+    // );
 
     return await subscriptionClient.createSubscriptionPayment(validatedPayment, cookie);
   };
