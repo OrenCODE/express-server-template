@@ -30,13 +30,13 @@ const errorMiddleware = (error: AppError, req: Request, res: Response, next: Nex
       const { code, config, request, response } = error;
       const clientError = {
         client: code,
-        reason: isDEV ? response.data.message : null,
+        reason: isDEV ? response?.data?.message ?? 'unknown' : `${code} client issue`,
         message: message || ErrorCodes.InternalServerError,
         method: request.method,
         url: config.url,
       };
       logError(stack);
-      return res.status(statusCode).json({ error: clientError });
+      return res.status(401).json({ error: clientError });
     }
 
     if (error instanceof DatabaseError) {
