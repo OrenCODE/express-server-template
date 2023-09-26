@@ -9,6 +9,8 @@ const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFun
   try {
     const Authorization = req.cookies['Authorization'] || extractAuthorizationHeader(req);
 
+    console.log(req.cookies, req);
+
     if (Authorization) {
       const headers = { cookie: `Authorization=${Authorization}` };
       const authClient = AuthClient(headers);
