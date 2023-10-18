@@ -12,7 +12,7 @@ type CreateUserDTO = z.infer<typeof CreateUserSchema>;
 const UserSchema = z.object({
   email: validations.email,
   name: validations.name.optional(),
-  password: validations.password,
+  password: z.string(),
   subscribed: validations.subscription.optional(),
 });
 

@@ -39,15 +39,15 @@ const errorMiddleware = (error: AppError, req: Request, res: Response, next: Nex
       return res.status(401).json({ error: clientError });
     }
 
-    if (error instanceof DatabaseError) {
-      logError(stack);
-      return res.status(statusCode).json({ message: message || ErrorCodes.InternalServerError });
-    }
-
     if (error instanceof CustomError) {
       const { code } = error;
       logError(stack);
-      return res.status(statusCode).json({ error: code });
+      return res.status(402).json({ error: code });
+    }
+
+    if (error instanceof DatabaseError) {
+      logError(stack);
+      return res.status(501).json({ message: message || ErrorCodes.InternalServerError });
     }
 
     logError(stack);

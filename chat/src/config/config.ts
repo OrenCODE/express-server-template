@@ -8,5 +8,5 @@ dotenv.config({ path });
 
 export default cleanEnv(process.env, {
   NODE_ENV: str({ default: 'development' }),
-  PORT: port({ default: 8000 }),
+  PORT: port({ default: 8080 }),
 });

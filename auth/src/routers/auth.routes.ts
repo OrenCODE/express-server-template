@@ -5,10 +5,10 @@ import authMiddleware from '@middlewares/auth.middleware';
 const authRouter = Router();
 const authController = AuthController();
 
-authRouter.post('/signup', authController.signUp);
+authRouter.post('/auth/signup', authController.signUp);
 
-authRouter.post('/login', authController.logIn);
+authRouter.post('/auth/login', authController.logIn);
 
-authRouter.post('/logout', authMiddleware, authController.logOut);
+authRouter.post('/auth/logout', authMiddleware, authController.logOut);
 
 export default authRouter;
