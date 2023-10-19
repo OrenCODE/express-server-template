@@ -436,3 +436,9 @@ Invalid `prisma.payment.delete()` invocation in
 An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
     at Object.deletePaymentById (/Users/orencohen/Repos/express-server-template/payments/src/services/payments.service.ts:43:13)
     at async deletePaymentById (/Users/orencohen/Repos/express-server-template/payments/src/controllers/payments.controller.ts:49:39)
+2023-10-18T13:48:51.773Z error: Authentication token missing
+2023-10-18T13:51:12.389Z error: AxiosError: connect ECONNREFUSED 127.0.0.1:3000
+    at AuthClientError (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:24:9)
+    at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:16:7)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:19:20)

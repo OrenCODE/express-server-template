@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { ZodError as ValidationError } from 'zod';
 import { AxiosError as ClientError } from 'axios';
 import { ErrorCodes } from '@utils/errorCodes';
-import { logError, isDEV } from '@middlewares/logger.middleware';
+import { isDEV, logError } from '@middlewares/logger.middleware';
 import { AppError, CustomError, DatabaseError, TokenError } from '@interfaces/error.interface';
 
 const errorMiddleware = (error: AppError, req: Request, res: Response, next: NextFunction) => {
@@ -18,19 +18,21 @@ const errorMiddleware = (error: AppError, req: Request, res: Response, next: Nex
 
     if (error instanceof ValidationError) {
       const validationErrors = error.errors;
-      const errors = validationErrors.map(issue => ({
-        field: issue.path.join('.'),
-        message: issue.message,
-      }));
+      const errorObject = {};
+
+      validationErrors.forEach(issue => {
+        const field = issue.path.join('.');
+        errorObject[field] = issue.message;
+      });
       logError(stack);
-      return res.status(400).json({ errors });
+      return res.status(400).json({ errors: errorObject });
     }
 
     if (error instanceof ClientError) {
       const { code, config, request, response } = error;
       const clientError = {
         client: code,
-        reason: isDEV ? response.data.message : null,
+        reason: isDEV ? response?.data?.message ?? 'unknown' : `${code} client issue`,
         message: message || ErrorCodes.InternalServerError,
         method: request.method,
         url: config.url,

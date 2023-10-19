@@ -8,14 +8,11 @@ import AuthClient from '@clients/authClient';
 const authMiddleware = async (req: RequestWithUser, res: Response, next: NextFunction) => {
   try {
     const Authorization = req.cookies['Authorization'] || extractAuthorizationHeader(req);
-
-    console.log(req.cookies, req);
-
     if (Authorization) {
       const headers = { cookie: `Authorization=${Authorization}` };
       const authClient = AuthClient(headers);
 
-      const userId = await verifyTokenAndGetUserId(Authorization);
+      const userId = verifyTokenAndGetUserId(Authorization);
       const user = await fetchUserDetails(authClient, userId);
 
       if (user) {
@@ -37,8 +34,8 @@ const extractAuthorizationHeader = (req: RequestWithUser) => {
   return header ? header.split('Bearer ')[1] : null;
 };
 
-const verifyTokenAndGetUserId = async (token: string) => {
-  const verificationResponse = (await verify(token, config.SECRET_KEY)) as DataStoredInToken;
+const verifyTokenAndGetUserId = (token: string) => {
+  const verificationResponse = verify(token, config.SECRET_KEY) as DataStoredInToken;
   return verificationResponse.id;
 };
 
