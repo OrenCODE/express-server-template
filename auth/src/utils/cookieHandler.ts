@@ -17,7 +17,17 @@ const createToken = (user: User): TokenData => {
 };
 
 const createCookie = (tokenData: TokenData): string => {
-  return `Authorization=${tokenData.token}; HttpOnly; Max-Age=${tokenData.expiresIn};`;
+  const path = 'Path=/;';
+  const httpOnly = 'HttpOnly;';
+  const sameSite = 'SameSite=Lax;';
+  const maxAge = `Max-Age=${tokenData.expiresIn};`;
+  const authorization = `Authorization=${tokenData.token};`;
+
+  const secured = process.env.NODE_ENV === 'production' ? 'Secure;' : '';
+
+  return `${authorization} ${maxAge} ${path} ${httpOnly} ${sameSite} ${secured}`;
 };
 
-export { createAuthCookie };
+const deleteCookie = 'Authorization=; Max-age=0; Path=/;';
+
+export { createAuthCookie, deleteCookie };

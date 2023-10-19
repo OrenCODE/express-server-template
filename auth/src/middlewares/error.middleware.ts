@@ -18,12 +18,14 @@ const errorMiddleware = (error: AppError, req: Request, res: Response, next: Nex
 
     if (error instanceof ValidationError) {
       const validationErrors = error.errors;
-      const errors = validationErrors.map(issue => ({
-        field: issue.path.join('.'),
-        message: issue.message,
-      }));
+      const errorObject = {};
+
+      validationErrors.forEach(issue => {
+        const field = issue.path.join('.');
+        errorObject[field] = issue.message;
+      });
       logError(stack);
-      return res.status(400).json({ errors });
+      return res.status(400).json({ errors: errorObject });
     }
 
     if (error instanceof ClientError) {

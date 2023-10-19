@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { User } from '@prisma/client';
 import { CreateUserDTO, CreateUserSchema, UserDTO, UserSchema } from '@dtos/user.dto';
 import { RequestWithUser } from '@interfaces/auth.interface';
+import { deleteCookie } from '@utils/cookieHandler';
 import AuthService from '@services/auth.service';
 import SubscriptionService from '@services/subscription.service';
 
@@ -44,7 +45,7 @@ const AuthController = () => {
       const validatedUser = UserSchema.parse(userData);
       const logOutUserData: User = await authService.logout(validatedUser);
 
-      res.setHeader('Set-Cookie', ['Authorization=; Max-age=0']);
+      res.setHeader('Set-Cookie', [deleteCookie]);
       res.status(200).json({ data: logOutUserData, message: 'logout' });
     } catch (error) {
       next(error);
