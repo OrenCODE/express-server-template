@@ -442,3 +442,4 @@ An operation failed because it depends on one or more records that were required
     at Object.findUserById (/Users/orencohen/Repos/express-server-template/payments/src/clients/authClient.ts:16:7)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:19:20)
+2023-11-05T13:39:54.455Z error: Error: ENOENT: no such file or directory, stat '/Users/orencohen/Repos/express-server-template/payments/src/documentation/path/to/swagger-ui.css'

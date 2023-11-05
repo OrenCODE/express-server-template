@@ -26,6 +26,7 @@
       "@controllers/*": ["controllers/*"],
       "@dtos/*": ["dtos/*"],
       "@repository/*": ["repository/*"],
+      "@documentation/*": ["documentation/*"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],
       "@middlewares/*": ["middlewares/*"],

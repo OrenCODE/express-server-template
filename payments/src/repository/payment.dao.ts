@@ -1,8 +1,9 @@
 import prisma from '@repository/prisma';
 import { Payment } from '@prisma/client';
+import { CreatePaymentDTO } from '@dtos/payments.dto';
 
 const paymentDAO = {
-  async createPayment(data) {
+  async createPayment(data: CreatePaymentDTO) {
     return prisma.payment.create({ data });
   },
 
@@ -10,11 +11,11 @@ const paymentDAO = {
     return prisma.payment.findMany();
   },
 
-  async getPaymentById(id): Promise<Payment | null> {
+  async getPaymentById(id: string): Promise<Payment | null> {
     return prisma.payment.findUnique({ where: { id } });
   },
 
-  async getAllPaymentsForUser(userId): Promise<Payment[] | null> {
+  async getAllPaymentsForUser(userId: string): Promise<Payment[] | null> {
     return prisma.payment.findMany({
       where: {
         userId: userId,
@@ -22,7 +23,7 @@ const paymentDAO = {
     });
   },
 
-  async deletePayment(id) {
+  async deletePayment(id: string) {
     return prisma.payment.delete({ where: { id } });
   },
 };
