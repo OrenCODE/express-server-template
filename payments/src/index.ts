@@ -9,6 +9,7 @@ import { errorMiddleware } from '@middlewares/error.middleware';
 import config from '@config/config';
 import logger from '@utils/logger';
 import paymentsRouter from '@routers/payments.router';
+import healthRouter from '@routers/health.routes';
 import swaggerDocumentation from '@documentation/swagger';
 
 const port = config.PORT;
@@ -21,6 +22,7 @@ app.use(cookieParser());
 
 app.use(loggerMiddleware);
 app.use(paymentsRouter);
+app.use(healthRouter);
 app.use(swaggerDocumentation);
 app.use(errorMiddleware);
 
