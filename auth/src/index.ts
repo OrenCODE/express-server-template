@@ -10,6 +10,7 @@ import authRouter from '@routers/auth.routes';
 import logger from '@utils/logger';
 import config from '@config/config';
 import adminRouter from '@routers/admin.routes';
+import healthRouter from '@routers/health.routes';
 
 const port = config.PORT;
 const app = express();
@@ -23,6 +24,7 @@ app.use(loggerMiddleware);
 app.use(adminRouter);
 app.use(usersRouter);
 app.use(authRouter);
+app.use(healthRouter);
 app.use(errorMiddleware);
 
 app.listen(port, () => {

@@ -1,21 +1,21 @@
 import { Router } from 'express';
-import { Queue } from 'bullmq';
+import { Queue as QueueMQ } from 'bullmq';
 import { createBullBoard } from '@bull-board/api';
-import { BullAdapter } from '@bull-board/api/bullAdapter';
+import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
 import { ExpressAdapter } from '@bull-board/express';
-import { connection } from '@/queue/config';
+import { connection } from '@queues/config';
 
 const serverAdapter = new ExpressAdapter();
 serverAdapter.setBasePath('/admin/queues');
 
 // Create the Bull Queue instance
-const exampleQueue = new Queue('exampleQueue', { connection });
+const exampleQueue = new QueueMQ('exampleQueue', { connection });
 
 // Create a Worker for the Queue
 // new Worker('exampleQueue', async job => emailProcess(job), { connection });
 
 createBullBoard({
-  queues: [new BullAdapter(exampleQueue)],
+  queues: [new BullMQAdapter(exampleQueue)],
   serverAdapter,
 });
 

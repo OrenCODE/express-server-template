@@ -10,6 +10,7 @@ import logger from '@utils/logger';
 
 import initializeSocketIO from './sockets/socket';
 import configureCors from './utils/cors.util';
+import healthRouter from '@routers/health.routes';
 
 const port = config.PORT;
 const app = express();
@@ -21,6 +22,7 @@ configureCors(app);
 app.use(express.json());
 
 app.use(loggerMiddleware);
+app.use(healthRouter);
 app.use(errorMiddleware);
 
 initializeSocketIO(httpServer);

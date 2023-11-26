@@ -8,7 +8,7 @@ dotenv.config({ path });
 
 export default cleanEnv(process.env, {
   NODE_ENV: str({ default: 'development' }),
-  PORT: port({ default: 3000 }),
+  PORT: port({ default: 30000 }),
   DOMAIN: str({ default: 'http://localhost:3000' }),
   DATABASE_URL: str(),
   SECRET_KEY: str(),
