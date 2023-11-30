@@ -11,6 +11,7 @@ import logger from '@utils/logger';
 import config from '@config/config';
 import adminRouter from '@routers/admin.routes';
 import healthRouter from '@routers/health.routes';
+import swaggerDocumentation from '@documentation/swagger';
 
 const port = config.PORT;
 const app = express();
@@ -25,6 +26,7 @@ app.use(adminRouter);
 app.use(usersRouter);
 app.use(authRouter);
 app.use(healthRouter);
+app.use(swaggerDocumentation);
 app.use(errorMiddleware);
 
 app.listen(port, () => {

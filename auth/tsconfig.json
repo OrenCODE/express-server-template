@@ -26,6 +26,7 @@
       "@controllers/*": ["controllers/*"],
       "@dtos/*": ["dtos/*"],
       "@queues/*": ["queues/*"],
+      "@documentation/*": ["documentation/*"],
       "@repository/*": ["repository/*"],
       "@exceptions/*": ["exceptions/*"],
       "@interfaces/*": ["interfaces/*"],
