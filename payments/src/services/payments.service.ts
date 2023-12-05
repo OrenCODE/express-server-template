@@ -1,6 +1,8 @@
 import { Payment } from '@prisma/client';
 import { CreatePaymentDTO } from '@dtos/payments.dto';
 import { DatabaseError } from '@exceptions/DatabaseError';
+import { CustomError } from '@exceptions/CustomError';
+import { ErrorCodes } from '@utils/errorCodes';
 import paymentDAO from '@repository/payment.dao';
 
 const PaymentService = () => {
@@ -28,7 +30,9 @@ const PaymentService = () => {
     }
   };
 
-  const createPaymentForUser = async (data: CreatePaymentDTO): Promise<Payment> => {
+  const createPaymentForUser = async (data: CreatePaymentDTO, senderId: string): Promise<Payment> => {
+    if (data.userId !== senderId) throw new CustomError(ErrorCodes.InvalidUserId);
+
     try {
       return await paymentDAO.createPayment(data);
     } catch (e) {

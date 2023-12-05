@@ -443,3 +443,23 @@ An operation failed because it depends on one or more records that were required
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:19:20)
 2023-11-05T13:39:54.455Z error: Error: ENOENT: no such file or directory, stat '/Users/orencohen/Repos/express-server-template/payments/src/documentation/path/to/swagger-ui.css'
+2023-11-30T12:00:09.439Z error: Error: 
+Invalid `prisma.payment.findMany()` invocation in
+/Users/orencohen/Repos/express-server-template/payments/src/repository/payment.dao.ts:11:27
+
+   8 },
+   9 
+  10 async getAllPayments(): Promise<Payment[]> {
+→ 11   return prisma.payment.findMany(
+Can't reach database server at `localhost`:`5432`
+
+Please make sure your database server is running at `localhost`:`5432`.
+    at Object.getAllPayments (/Users/orencohen/Repos/express-server-template/payments/src/services/payments.service.ts:11:13)
+    at async getAllPayments (/Users/orencohen/Repos/express-server-template/payments/src/controllers/payments.controller.ts:59:35)
+2023-11-30T13:53:23.366Z error: Error
+    at Object.createPaymentForUser (/Users/orencohen/Repos/express-server-template/payments/src/services/payments.service.ts:34:41)
+    at createPaymentForUser (/Users/orencohen/Repos/express-server-template/payments/src/controllers/payments.controller.ts:16:64)
+    at Layer.handle [as handle_request] (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
+    at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:20:9)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)

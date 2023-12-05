@@ -7,11 +7,12 @@ import PaymentsService from '@services/payments.service';
 const PaymentsController = () => {
   const paymentService = PaymentsService();
 
-  const createPaymentForUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const createPaymentForUser = async (req: RequestWithUser, res: Response, next: NextFunction): Promise<void> => {
     try {
       const paymentData: CreatePaymentDTO = req.body;
+      const senderId = req.user.id;
       const validatedPayment = CreatePaymentSchema.parse(paymentData);
-      const paymentCreatedData: Payment = await paymentService.createPaymentForUser(validatedPayment);
+      const paymentCreatedData: Payment = await paymentService.createPaymentForUser(validatedPayment, senderId);
 
       res.status(201).json({ data: paymentCreatedData, message: 'Payment success' });
     } catch (error) {

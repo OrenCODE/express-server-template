@@ -34,7 +34,7 @@ const extractAuthorizationHeader = (req: RequestWithUser) => {
 };
 
 const verifyTokenAndGetUserId = async (token: string) => {
-  const verificationResponse = (await verify(token, config.SECRET_KEY)) as DataStoredInToken;
+  const verificationResponse = verify(token, config.SECRET_KEY) as DataStoredInToken;
   return verificationResponse.id;
 };
 
