@@ -6,7 +6,7 @@ const users = [];
 const initializeSocketIO = (httpServer: HTTPServer) => {
   const io = new SocketIO(httpServer, {
     allowEIO3: true,
-    cors: { credentials: true, origin: 'http://localhost:3000' },
+    cors: { credentials: true, origin: 'http://localhost:30001' },
   });
 
   io.on('connection', socket => {
