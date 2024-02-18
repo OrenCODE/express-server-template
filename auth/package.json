@@ -9,7 +9,7 @@
     "build": "tsc && tsc-alias",
     "start": "npm run build && NODE_ENV=production node dist/index.js",
     "lint": "eslint --ignore-path .gitignore --ext .ts src/",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "eslint --ignore-path .gitignore --ext .ts src/ --fix"
   },
   "author": "Oren Cohen",
   "license": "ISC",

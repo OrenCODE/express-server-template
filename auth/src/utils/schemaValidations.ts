@@ -24,3 +24,5 @@ export const validations = {
   role: z.string(),
   subscription: z.boolean(),
 };
+
+export const test = 't';
