@@ -14,8 +14,8 @@
     "ms:payments": "npm run dev --prefix payments",
     "server": "concurrently \"npm run ms:auth\" \"npm run ms:payments\"",
     "prepare": "husky install",
-    "lint": "./node_modules/.bin/eslint . --ext .ts,.js",
-    "lint:fix": "./node_modules/.bin/eslint . --ext .ts,.js --fix",
+    "lint": "eslint --ignore-path .gitignore --ext .ts src/",
+    "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write \"**/*.{js,ts,json,css,md}\""
   },
   "workspaces": ["auth","payments","chat"],
