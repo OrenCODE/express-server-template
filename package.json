@@ -14,7 +14,7 @@
     "ms:payments": "npm run dev --prefix payments",
     "server": "concurrently \"npm run ms:auth\" \"npm run ms:payments\"",
     "prepare": "husky install",
-    "lint": "eslint --ignore-path .gitignore --ext .ts src/",
+    "lint": "eslint --ignore-path .gitignore . --ext .ts,.js",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write \"**/*.{js,ts,json,css,md}\""
   },
