@@ -1,10 +1,7 @@
 export interface Role {
   name: string;
-  permissions: string[];
+  permissions: Permission;
 }
 
-export interface Roles {
-  roles: Role[];
-}
-
+export type Roles = Role[];
 export type Permission = string[];

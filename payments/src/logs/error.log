@@ -463,3 +463,5 @@ Please make sure your database server is running at `localhost`:`5432`.
     at next (/Users/orencohen/Repos/express-server-template/payments/node_modules/express/lib/router/route.js:144:13)
     at authMiddleware (/Users/orencohen/Repos/express-server-template/payments/src/middlewares/auth.middleware.ts:20:9)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-02-18T09:06:10.982Z error: Authentication token missing
+2024-02-18T09:06:19.446Z error: Authentication token missing

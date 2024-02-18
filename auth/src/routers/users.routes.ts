@@ -1,11 +1,14 @@
 import { Router } from 'express';
 import UsersController from '@controllers/users.controller';
 import authMiddleware from '@middlewares/auth.middleware';
+import hasPermission from '@utils/hasPermission';
 
 const usersRouter = Router();
 const usersController = UsersController();
 
-usersRouter.get('/users', authMiddleware, usersController.getUsers);
+const viewUsersPermission = 'view_users';
+
+usersRouter.get('/users', authMiddleware, hasPermission(viewUsersPermission), usersController.getUsers);
 
 usersRouter.get('/users/:id', authMiddleware, usersController.getUserById);
 

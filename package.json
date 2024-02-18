@@ -13,15 +13,25 @@
     "ms:auth": "npm run dev --prefix auth",
     "ms:payments": "npm run dev --prefix payments",
     "server": "concurrently \"npm run ms:auth\" \"npm run ms:payments\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "./node_modules/.bin/eslint . --ext .ts,.js",
+    "lint:fix": "./node_modules/.bin/eslint . --ext .ts,.js --fix",
+    "format": "prettier --write \"**/*.{js,ts,json,css,md}\""
   },
+  "workspaces": ["auth","payments","chat"],
   "keywords": [],
   "author": "Oren Cohen",
   "license": "ISC",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
     "concurrently": "^8.2.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },

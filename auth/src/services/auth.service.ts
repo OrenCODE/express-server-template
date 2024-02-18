@@ -11,7 +11,7 @@ const AuthService = () => {
     const findUser: User = await userDAO.getUserByEmail(data);
     if (findUser) throw new CustomError(ErrorCodes.UserAlreadyExists);
 
-    const hashedPassword = await hash(data.password, 10);
+    const hashedPassword = (await hash(data.password, 10)) as string;
     const newUser = await userDAO.createUser(data, hashedPassword);
     const cookie = createAuthCookie(newUser);
 
