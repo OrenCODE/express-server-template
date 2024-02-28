@@ -2,10 +2,6 @@ node_modules
 dist
 .DS_Store
 .idea
-auth/mongodb-cluster
-auth/.env.development
-auth/src/logs
-payments/.env.development
-chat/.env.development
-payments/src/logs
+.env.development
+
 
