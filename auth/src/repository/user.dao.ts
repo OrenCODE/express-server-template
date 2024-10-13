@@ -17,8 +17,8 @@ const userDAO = {
     return prisma.user.findFirst({ where: { email: data.email, password: data.password } });
   },
 
-  async getUserByEmail(data: UserDTO): Promise<User | null> {
-    return prisma.user.findUnique({ where: { email: data.email } });
+  async getUserByEmail(email: string): Promise<User | null> {
+    return prisma.user.findUnique({ where: { email } });
   },
 
   async getAllUsers(): Promise<User[]> {

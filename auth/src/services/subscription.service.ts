@@ -12,7 +12,7 @@ const SubscriptionService = () => {
   const subscriptionClient = SubscriptionClient();
 
   const createSubscriptionPayment = async (data: User, cookie: string) => {
-    const findUser: User = await userDAO.getUserByEmail(data);
+    const findUser: User = await userDAO.getUserByEmail(data.email);
     if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
     const payment = { userId: findUser.id, amount: config.SUBSCRIPTION_PRICE };
@@ -35,7 +35,7 @@ const SubscriptionService = () => {
     const validatedPayment = CreateSubscriptionSchema.parse(subscription);
 
     if (validatedPayment.amount === config.SUBSCRIPTION_PRICE) {
-      const findUser: User = await userDAO.getUserByEmail(data);
+      const findUser: User = await userDAO.getUserByEmail(data.email);
       if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
       const updatedUser = await userDAO.updateUser(findUser.id, { subscribed: true });

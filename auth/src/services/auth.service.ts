@@ -8,7 +8,8 @@ import userDAO from '@repository/user.dao';
 
 const AuthService = () => {
   const signup = async (data: CreateUserDTO): Promise<{ cookie: string; newUser: User }> => {
-    const findUser: User = await userDAO.getUserByEmail(data);
+    const userEmail = data.email.toLowerCase();
+    const findUser: User = await userDAO.getUserByEmail(userEmail);
     if (findUser) throw new CustomError(ErrorCodes.UserAlreadyExists);
 
     const hashedPassword = (await hash(data.password, 10)) as string;
@@ -19,7 +20,8 @@ const AuthService = () => {
   };
 
   const login = async (data: UserDTO): Promise<{ cookie: string; findUser: User }> => {
-    const findUser: User = await userDAO.getUserByEmail(data);
+    const userEmail = data.email.toLowerCase();
+    const findUser: User = await userDAO.getUserByEmail(userEmail);
     if (!findUser) throw new CustomError(ErrorCodes.UserNotFound);
 
     const isPasswordMatching: boolean = await compare(data.password, findUser.password);

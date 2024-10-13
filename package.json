@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "postinstall": "npm run install:auth ; npm run install:payments",
+    "postinstall": "npm run install:auth ; npm run install:payments ; npm run install:chat" ,
     "install:auth": "cd ./auth && npm i && npx prisma generate",
     "install:payments": "cd ./payments && npm i && npx prisma generate",
+    "install:chat": "cd ./chat && npm i",
     "build:auth": "cd ./auth && npm run build",
     "build:payments": "cd ./payments && npm run build",
     "ms:auth": "npm run dev --prefix auth",
